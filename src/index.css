@@ -1,13 +1,53 @@
-* {
-  background-color: rgb(26, 24, 24);
-  color: white;
+.pointer {
+  cursor: pointer;
 }
 
-/* navbar */
-.navbar-brand {
-  color: white;
+.img-container {
+  width: 100vw;
+  height: 60vh;
+  overflow: hidden;
 }
 
-.nav-link {
+
+.home_image {
+  width: 100%;
+  object-fit: cover;
+}
+
+/* For movie item */
+.movie-item {
+  cursor: pointer;
+}
+
+.movie-image-container {
+  height: 45vh;
+  overflow: hidden;
+}
+
+/* For cinema list */
+.selected-item  {
+  background-color: rgb(228, 182, 16) !important;
   color: white !important;
+  border: 1px solid rgb(228, 182, 16)!important;
+} 
+
+.card-hover:hover {
+  background-color: rgb(213, 199, 148);
+  color: white;
+  border: 1px solid rgb(213, 199, 148);
+
+}
+
+.room-hover:hover {
+  background-color: black;
+  color: white;
+  border: 1px solid black;
+
+}
+
+.room-selected {
+  background-color: black !important;
+  color: white !important;
+  border: 1px solid black !important;
+
 }

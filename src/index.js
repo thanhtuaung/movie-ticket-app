@@ -8,6 +8,9 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.js";
 import Home from "./pages/Home";
+import AllMovies from "./pages/AllMovies";
+import CinemaList from "./pages/CinemaList";
+import TimeSelector from "./pages/TimeSelector";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +20,18 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home />,
+      },
+      {
+        path: "/movies",
+        element: <AllMovies />,
+      },
+      {
+        path: "/movies/:id",
+        element: <CinemaList />,
+      },
+      {
+        path: "/movies/:movieId/cinemas/:cinemaId/rooms/:roomId",
+        element: <TimeSelector />,
       },
     ],
   },
