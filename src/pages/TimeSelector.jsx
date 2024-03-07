@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import useFetch from "../hooks/useFetch";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const TimeSelector = () => {
   const { movieId, cinemaId, roomId } = useParams();
   const [times, setTimes] = useState(null);
+  const [showTimeId, setShowTimeId] = useState(null);
 
   const {
     data: showDate,
@@ -15,7 +16,7 @@ const TimeSelector = () => {
   );
 
   useEffect(() => {
-    if (showDate) {
+    if (showDate?.length) {
       fetch(
         "https://movies-data-server.vercel.app/Tbl_MovieSchedule?ShowDateId=" +
           showDate[0].ShowDateId
@@ -30,14 +31,18 @@ const TimeSelector = () => {
   return (
     <div className="container">
       <h4>Choose Time</h4>
-
+      {!times && <div>There are no times to show!</div>}
       {times && (
         <div className="row row-cols-1 row-cols-md-4 g-4">
           {times.map((time) => (
-            <div className="col">
+            <div className="col" key={time.ShowId}>
               <div
-                key={time.ShowId}
-                className="card py-2 px-2 d-flex align-items-center justify-content-center"
+                className={`card py-2 px-2 pointer d-flex align-items-center justify-content-center time-card ${
+                  showTimeId == time.ShowId && "selected"
+                }`}
+                onClick={() => {
+                  setShowTimeId(time.ShowId);
+                }}
               >
                 {time.ShowDateTime}
               </div>
@@ -45,6 +50,14 @@ const TimeSelector = () => {
           ))}
         </div>
       )}
+      <div className="text-end py-4">
+        <Link
+          to={`/movies/${movieId}/cinemas/${cinemaId}/rooms/${roomId}/times/${showTimeId}`}
+          className="btn btn-warning"
+        >
+          Next
+        </Link>
+      </div>
     </div>
   );
 };

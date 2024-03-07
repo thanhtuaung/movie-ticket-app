@@ -51,3 +51,41 @@
   border: 1px solid black !important;
 
 }
+
+/*  For time selector page */
+.time-card {
+  transition: all 0.4s ease;
+}
+
+.time-card:hover {
+  border: 1px solid rgb(228, 182, 16);
+}
+
+.selected {
+  border: 1px solid rgb(228, 182, 16) !important;
+}
+
+/* For seat selector page */
+.seat {
+  width: 4.5%;
+  height: 3.5vw;
+  margin: 5px 0px;
+  border: 2px solid rgb(228, 182, 16);
+}
+
+.couple-seat {
+  width: 15%;
+}
+
+.road {
+  width: 5%;
+}
+
+.couple-road {
+  max-width: 100%;
+}
+
+.selected-seat {
+  background-color: rgb(228, 182, 16);
+  color: white;
+}

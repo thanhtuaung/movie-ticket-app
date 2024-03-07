@@ -11,6 +11,7 @@ import Home from "./pages/Home";
 import AllMovies from "./pages/AllMovies";
 import CinemaList from "./pages/CinemaList";
 import TimeSelector from "./pages/TimeSelector";
+import SeatSelector from "./pages/SeatSelector";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: "/movies/:movieId/cinemas/:cinemaId/rooms/:roomId",
         element: <TimeSelector />,
+      },
+      {
+        path: "/movies/:movieId/cinemas/:cinemaId/rooms/:roomId/times/:timeId",
+        element: <SeatSelector />,
       },
     ],
   },
